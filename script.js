@@ -25,3 +25,7 @@ const footballTeam = {
     },
   ],
 };
+
+const team = document.querySelector("#team");
+const year = document.querySelector("#year");
+const headCoach = document.querySelector("#head-coach");
