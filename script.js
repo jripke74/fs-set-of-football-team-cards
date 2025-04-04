@@ -39,8 +39,8 @@ footballTeam.players.forEach((player) => {
   const nameHeading = document.createElement("h2");
   const positionPara = document.createElement("p");
 
-  nameHeading.textContent = player.isCaptain ? `${player.name}` : player.name;
-  positionPara.textContent = `${player.name}`;
+  nameHeading.textContent = player.isCaptain ? `(Captain) ${player.name}` : player.name;
+  positionPara.textContent = `${player.position}`;
 
   cardDiv.classList.add("player-card");
   cardDiv.appendChild(nameHeading);
