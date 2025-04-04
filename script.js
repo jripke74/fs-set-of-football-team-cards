@@ -39,7 +39,9 @@ footballTeam.players.forEach((player) => {
   const nameHeading = document.createElement("h2");
   const positionPara = document.createElement("p");
 
-  nameHeading.textContent = player.isCaptain ? `(Captain) ${player.name}` : player.name;
+  nameHeading.textContent = player.isCaptain
+    ? `(Captain) ${player.name}`
+    : player.name;
   positionPara.textContent = `${player.position}`;
 
   cardDiv.classList.add("player-card");
@@ -47,4 +49,28 @@ footballTeam.players.forEach((player) => {
   cardDiv.appendChild(positionPara);
 
   playerCardsContainer.appendChild(cardDiv);
+});
+
+const filterEl = document.getElementById("players");
+
+filterEl.addEventListener("change", () => {
+  const selectedValue = filterEl.value.toLowerCase();
+  const allCards = document.querySelectorAll(".player-card");
+
+  allCards.forEach((card) => {
+    const positionText = card.querySelector("p").textContent;
+
+    const cardPosition = positionText
+      .replace("Position: ", "")
+      .toLowerCase()
+      .trim();
+
+    if (selectedValue === "all") {
+      card.style.display = "block";
+    } else if (cardPosition === selectedValue) {
+      card.style.display = "block";
+    } else {
+      card.remove();
+    }
+  });
 });
